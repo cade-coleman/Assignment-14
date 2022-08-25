@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 
 const thoughtSchema = new Schema(
     {
-        thoughtText:{
+        thoughtBody:{
             type: String,
             unique: true,
             required: true,
@@ -13,7 +13,7 @@ const thoughtSchema = new Schema(
             default: Date.now,
             get: (currentDate) => dateFormat(currentDate)      
         },
-        username:{
+        userName:{
             type: String,
             required: true,
         },
