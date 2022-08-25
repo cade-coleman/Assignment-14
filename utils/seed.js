@@ -1,14 +1,14 @@
 const connection = require("../config/connection");
 const { Thought, User } = require("../models");
 const { user, thought } = require("./seedData");
-// const colors = require("colors");
 const mongoose = require("mongoose");
+const colors = require("colors");
 
 connection.on("error", (err) => err);
 
 const seedDB = async () => {
-  await Thought.deleteMany({});
-  await User.deleteMany({});
+  await Thought.deleteMany({  });
+  await User.deleteMany({  });
 
   await User.insertMany(user);
   await Thought.insertMany(thought);
@@ -20,7 +20,7 @@ const seedDB = async () => {
 connection.once("open", async () => {
   console.log("CONNECTED TO DB".bgGreen);
   seedDB().then(() => {
-    console.info("Seeding complete! 🌱".green);
+    console.info("Seeding complete! 🌱".rainbow);
     process.exit(0);
   });
 });
